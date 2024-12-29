@@ -1,4 +1,7 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
+from app import db
+from app.models import Order
+from app.utils import send_order_email
 
 main = Blueprint('main', __name__)
 
@@ -27,7 +30,7 @@ def contact():
 @main.route("/purchase", methods=["GET", "POST"])
 def purchase():
     if request.method == "POST":
-        # Extract form data
+        # Get form data
         name = request.form.get("name_surname")
         location = request.form.get("location")
         transportation = request.form.get("transportation")
@@ -35,17 +38,17 @@ def purchase():
         phone = request.form.get("phone")
         email = request.form.get("email")
 
-        # Simple server-side validation
-        if not all([name, location, transportation, size, phone, email]):
-            flash("All fields are required. Please fill out the form completely.", "error")
-            return redirect(url_for("main.purchase"))
+        # Simulate saving order to database
+        order_details = f"Location: {location}, Transportation: {transportation}, Size: {size}, Phone: {phone}"
+        new_order = Order(user_id=1, product_id=1, quantity=1, total_price=99.99)
+        db.session.add(new_order)
+        db.session.commit()
 
-        # Log the received data (replace with database saving logic)
-        print(f"Order Received: {name}, {location}, {transportation}, {size}, {phone}, {email}")
+        # Send email notification
+        send_order_email(email, name, order_details)
 
-        # Flash a success message
-        flash("Your order has been submitted successfully!", "success")
+        # Flash success message
+        flash("Your order has been placed successfully!", "success")
         return redirect(url_for("main.purchase"))
 
-    # Render the purchase form for GET requests
     return render_template("purchase.html")

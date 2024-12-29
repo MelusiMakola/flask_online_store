@@ -3,6 +3,29 @@
 {% block title %}Gallery{% endblock %}
 
 {% block content %}
-<h1>Gallery</h1>
-<p>Welcome to the gallery page!</p>
+<header>
+    <h1 class="page-title">Our Gallery</h1>
+    <p class="page-subtitle">Explore our collection of products and moments.</p>
+</header>
+
+<main class="gallery-container">
+    <div class="gallery-grid">
+        <!-- Example Static Images (Replace or Dynamically Load) -->
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='img/gallery1.jpg') }}" alt="Gallery Image 1">
+        </div>
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='img/gallery2.jpg') }}" alt="Gallery Image 2">
+        </div>
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='img/gallery3.jpg') }}" alt="Gallery Image 3">
+        </div>
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='img/gallery4.jpg') }}" alt="Gallery Image 4">
+        </div>
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='img/gallery5.jpg') }}" alt="Gallery Image 5">
+        </div>
+    </div>
+</main>
 {% endblock %}

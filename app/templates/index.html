@@ -3,45 +3,47 @@
 {% block title %}Home - Defenders Of House{% endblock %}
 
 {% block content %}
-<!-- Start of WelcomeText Div -->
+<!-- Welcome Text Section -->
 <div class="welcome-text">
-    <span>
-        <h1><span class="multiText">Defenders Of House</span></h1>
-    </span>
+    <h1><span class="multiText">Defenders Of House</span></h1>
 </div>
-<!-- End of Welcome Text Div -->
 
-<!-- Start of Product card -->
+<!-- Product Cards Section -->
 <div class="product-container">
     <!-- Product Card 1 -->
     <div class="product-card">
-        <img src="{{ url_for('static', filename='img/blank-t-shirt-png-30249.png') }}" alt="Product 1 Image">
+        <img 
+            src="{{ url_for('static', filename='img/blank-t-shirt-png-30249.png') }}" 
+            alt="Red Defenders of House Golf T-Shirt"
+        >
         <h2 class="product-name">D.O.H Golf T-Shirt</h2>
         <p class="product-details">Red Defenders of House golf T-shirt.</p>
         <p class="product-price">R400</p>
     </div>
-    <!-- End of Product card 1 -->
 
     <!-- Product Card 2 -->
     <div class="product-card">
-        <img src="{{ url_for('static', filename='img/loading-cylon-red.svg') }}" alt="Product 2 Image">
+        <img 
+            src="{{ url_for('static', filename='img/loading-cylon-red.svg') }}" 
+            alt="Defenders of House Updates"
+        >
         <h2 class="product-name">D.O.H Updates</h2>
-        <p class="product-details">Defenders of House is not just a brand but it is a culture of people who have been 
-            touched by house music. Join The Movement with 
-            some style by D.O.H - Defenders Of House.
+        <p class="product-details">
+            Defenders of House is not just a brand, but a culture of people who have been 
+            touched by house music. Join the movement with style by D.O.H - Defenders Of House.
         </p>
         <p class="product-price">The Movement Continues...</p>
     </div>
-    <!-- End of Product card 2 -->
 
     <!-- Product Card 3 -->
     <div class="product-card">
-        <img src="{{ url_for('static', filename='img/blank-t-shirt-png-30265.png') }}" alt="Product 3 Image">
+        <img 
+            src="{{ url_for('static', filename='img/blank-t-shirt-png-30265.png') }}" 
+            alt="White Defenders of House Round Neck T-Shirt"
+        >
         <h2 class="product-name">D.O.H Round Neck</h2>
         <p class="product-details">White D.O.H round neck T-shirt.</p>
         <p class="product-price">R450</p>
     </div>
-    <!-- End of Product card 3 -->
 </div>
-<!-- End Of Product Cards -->
 {% endblock %}

@@ -3,7 +3,8 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Defenders of House</title>
+        <title>{% block title %}Defenders of House{% endblock %}</title>
+        
         <!-- Font Awesome CSS -->
         <link
             rel="stylesheet"
@@ -11,54 +12,58 @@
             integrity="sha384-2F7grQOPoRwdD1CqSvP8Z9NOsD3y6b7Ip+Tcpl0abWTE7Yve3uvs57Xo69F6fXuZ"
             crossorigin="anonymous"
         >
-        <!-- Your CSS -->
+        
+        <!-- Custom Stylesheet -->
         <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     </head>
     
-<body>
-    <!-- Start of Container Div -->
-    <div class="container">
-        <!-- Start of Navigation Menu -->
-        <nav class="menu">
-            <ul>
-                <li class="{% if request.endpoint == 'main.home' %}active{% endif %}">
-                    <a href="{{ url_for('main.home') }}">Home</a>
-                </li>
-                <li class="{% if request.endpoint == 'main.gallery' %}active{% endif %}">
-                    <a href="{{ url_for('main.gallery') }}">Gallery</a>
-                </li>
-                <li class="{% if request.endpoint == 'main.purchase' %}active{% endif %}">
-                    <a href="{{ url_for('main.purchase') }}">Purchase</a>
-                </li>
-                <li class="{% if request.endpoint == 'main.about' %}active{% endif %}">
-                    <a href="{{ url_for('main.about') }}">About</a>
-                </li>
-            </ul>
-        
-        
-            <div class="social-icons">
-                <a href="#" class="social-icon facebook" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="social-icon twitter" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="social-icon instagram" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-            </div>
-            
-            <button class="contact-button">Contact Us</button>
-        </nav>
-        <!-- End of Navigation Menu -->
+    <body>
+        <!-- Start of Container Div -->
+        <div class="container">
+            <!-- Start of Navigation Menu -->
+            <nav class="menu">
+                <ul class="menu-links">
+                    <li class="{% if request.endpoint == 'main.home' %}active{% endif %}">
+                        <a href="{{ url_for('main.home') }}">Home</a>
+                    </li>
+                    <li class="{% if request.endpoint == 'main.gallery' %}active{% endif %}">
+                        <a href="{{ url_for('main.gallery') }}">Gallery</a>
+                    </li>
+                    <li class="{% if request.endpoint == 'main.purchase' %}active{% endif %}">
+                        <a href="{{ url_for('main.purchase') }}">Purchase</a>
+                    </li>
+                    <li class="{% if request.endpoint == 'main.about' %}active{% endif %}">
+                        <a href="{{ url_for('main.about') }}">About</a>
+                    </li>
+                </ul>
+                
+                <!-- Social Media Icons -->
+                <div class="social-icons">
+                    <a href="#" class="social-icon facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-icon twitter" aria-label="Twitter">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="social-icon instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                
+                <!-- Contact Button -->
+                <button class="contact-button">Contact Us</button>
+            </nav>
+            <!-- End of Navigation Menu -->
 
-        <!-- Dynamic Content -->
-        {% block content %}{% endblock %}
-    </div>
-    <!-- End of Container Div -->
+            <!-- Dynamic Content Block -->
+            <main>
+                {% block content %}{% endblock %}
+            </main>
+        </div>
+        <!-- End of Container Div -->
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
-    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
-</body>
+        <!-- External Scripts -->
+        <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+        <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    </body>
 </html>
