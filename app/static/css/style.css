@@ -1,14 +1,298 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
+/* CSS Variables */
+:root {
+    --color-success-bg: #d4edda;
+    --color-success-border: #c3e6cb;
+    --color-success-text: #155724;
+    --color-primary: #3498db;
+    --color-primary-hover: #45a049;
+    --color-secondary: #3b5998;
+    --color-twitter: #1da1f2;
+    --color-text-dark: #333;
+    --color-text-muted: #555;
+    --color-background-light: #f9f9f9;
+    --box-shadow-light: 0px 1px 4px rgba(0, 0, 0, 0.1);
+    --box-shadow-hover: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    --transition-speed: 0.3s ease;
+}
+
+/* Global Reset */
+* {
     padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-header, footer {
-    background-color: #333;
+
+/* Flash Messages */
+.flash-messages {
+    margin: 20px;
+    padding: 10px;
+    background-color: var(--color-success-bg);
+    border: 1px solid var(--color-success-border);
+    color: var(--color-success-text);
+    border-radius: 5px;
+    box-shadow: var(--box-shadow-light);
+}
+
+/* Layout Containers */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 10%;
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    background-color: #4267b2;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color var(--transition-speed), transform var(--transition-speed);
+}
+
+.social-icons a:hover {
+    background-color: var(--color-secondary);
+    transform: scale(1.1);
+}
+
+/* Navigation Menu */
+.menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30px 0 15px;
+    border-bottom: 1px solid black;
+}
+
+.menu ul {
+    display: flex;
+    gap: 30px;
+}
+
+.menu ul li {
+    list-style: none;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color var(--transition-speed);
+}
+
+.menu ul li a:hover {
+    color: var(--color-primary);
+}
+
+.menu button {
+    background-color: var(--color-primary);
     color: white;
-    text-align: center;
-    padding: 1em 0;
+    border: none;
+    border-radius: 30px;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color var(--transition-speed), color var(--transition-speed);
 }
-h1, h2 {
-    color: #333;
+
+.menu button:hover {
+    background-color: white;
+    color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+}
+
+/* Responsive Menu */
+@media (max-width: 768px) {
+    .menu ul {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .menu button {
+        padding: 8px 12px;
+    }
+}
+
+/* Headings */
+.welcome-text {
+    text-align: center;
+    color: black;
+    margin: 20px 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.multiText {
+    text-transform: capitalize;
+    font-size: 48px;
+    font-weight: 900;
+    margin: 10px 0;
+}
+
+/* Product Cards */
+.product-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.product-card {
+    flex: 1 0 calc(33.333% - 10px);
+    border-radius: 10px;
+    background-color: white;
+    box-shadow: var(--box-shadow-light);
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+.product-card img {
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    transition: transform var(--transition-speed);
+}
+
+.product-card:hover {
+    transform: scale(1.05);
+    box-shadow: var(--box-shadow-hover);
+}
+
+.product-card img:hover {
+    transform: scale(1.1);
+}
+
+.product-name,
+.product-price {
+    text-align: center;
+    font-weight: 700;
+    color: var(--color-text-dark);
+    margin: 10px 0;
+}
+
+/* Gallery */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 15px;
+    padding: 20px;
+}
+
+.image {
+    position: relative;
+    overflow: hidden;
+    border-radius: 10px;
+}
+
+.image img {
+    width: 100%;
+    height: auto;
+    transition: transform var(--transition-speed);
+}
+
+.image:hover img {
+    transform: scale(1.1);
+}
+
+/* Fullscreen */
+:fullscreen {
+    width: 100%;
+    height: 100%;
+}
+
+/* Contact Form */
+.contact-us-form {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: var(--color-background-light);
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-light);
+}
+
+.contact-us-form h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.contact-us-form p {
+    text-align: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: var(--color-text-muted);
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+button.btn {
+    width: 100%;
+    padding: 10px;
+    background-color: var(--color-primary-hover);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color var(--transition-speed);
+}
+
+button.btn:hover {
+    background-color: var(--color-primary);
+}
+
+/* About Section */
+.about-container {
+    margin: 0 auto;
+    padding: 20px;
+    max-width: 800px;
+}
+
+.about-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: var(--box-shadow-light);
+}
+
+.about-section h2 {
+    font-size: 24px;
+    color: var(--color-text-dark);
+    margin-bottom: 10px;
+}
+
+.about-section p {
+    font-size: 16px;
+    color: var(--color-text-muted);
+    line-height: 1.6;
+}
+
+.about-section ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
 }

@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}Purchase - Defenders Of House{% endblock %}
+
+{% block content %}
+<!-- Purchase Page Container -->
+<div class="container">
+    <div class="contact-us-form">
+        <h2>Place Order Here</h2>
+        <p>Please fill in the details below to place your order. (Order will be finalized via contact)</p>
+        <!-- Form -->
+        <form class="form product-card" method="post" action="/process_order">
+            <div class="col">
+                <div class="form-group">
+                    <input type="text" name="name_surname" placeholder="Name & Surname" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="text" name="location" placeholder="Location" required>
+                </div>
+            </div>
+
+            <div class="col">
+                <div class="form-group">
+                    <select name="transportation" required>
+                        <option value="" disabled selected>How Would You Like To Get Your Order</option>
+                        <option value="Delivery">Courier guy - Include delivery address (R100)</option>
+                        <option value="Collection">Meet up (Free) - Barberton based only</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <select name="size" required>
+                        <option value="" disabled selected>Select Size</option>
+                        <option value="Small">Small</option>
+                        <option value="Medium">Medium</option>
+                        <option value="Large">Large</option>
+                        <option value="Extra Large">Extra Large</option>
+                    </select>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Phone" required>
+                </div>
+            </div>
+            <div class="col">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+            </div>
+            <div class="col-12">
+                <div class="form-group login-btn">
+                    <button class="btn" type="submit">Submit Order</button>
+                </div>
+            </div>
+        </form>
+        <!--/ End Form -->
+    </div>
+</div>
+<!-- End Of Purchase Page Container -->
+{% endblock %}
